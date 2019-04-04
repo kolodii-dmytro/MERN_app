@@ -1,0 +1,14 @@
+
+body{
+  margin: 0;
+  font-family: "Roboto";
+font-weight: 400;
+}
+.reactApp {
+  display: grid;
+  
+  grid-template-areas:
+    'header'
+    'main'
+    'footer';
+}

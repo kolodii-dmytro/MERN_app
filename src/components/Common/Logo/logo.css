@@ -1,0 +1,10 @@
+.logo{
+ display: flex;
+ padding: 0 0.5rem;
+ align-items: center;
+ font-size: 1.2rem;
+ font-weight: 500;
+}
+/* .logo svg{
+    height: 100%
+} */
