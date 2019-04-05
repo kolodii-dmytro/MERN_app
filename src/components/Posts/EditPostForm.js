@@ -3,7 +3,7 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from "yup";
 
 export default function editPostForm (props) {
-    const {submit, title='', text=''} = props
+    const {cancel, submit, title='', text='', _id} = props
     
     const createPostSchema = Yup.object().shape({
         title: Yup.string()
@@ -16,10 +16,10 @@ export default function editPostForm (props) {
     
     
     return (<Formik
-        initialValues={{title: '', text:''}}
+        initialValues={{title: title, text:text}}
         validationSchema={createPostSchema}
         onSubmit = {(values, actions) => {
-            submit(values);
+            submit({...values, _id});
 
         }}
 
@@ -31,6 +31,9 @@ export default function editPostForm (props) {
                 <Field type="textarea" name="text" />
                 <button type="submit" disabled={isSubmitting}>
                 Save
+              </button>
+              <button onClick = {cancel}>
+                Cancel 
               </button>
             </Form>
           )}

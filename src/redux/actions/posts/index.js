@@ -24,8 +24,6 @@ export const createPostFailed = (payload) => ({
 });
 export const createPost = (payload) => (dispatch, getState) =>{
     const {user:{id}} = getState()
-    console.log(id);
-    console.log(payload)
     dispatch({type: c.CREATE_POST, payload});
     return fetchApiData('createPost', {...payload, autorId: id})
     .then(data=>dispatch( createPostSucces(data)))
@@ -33,15 +31,23 @@ export const createPost = (payload) => (dispatch, getState) =>{
 
 };
 
-export const editPost = (payload) => ({
-    type: c.EDIT_POST, payload
-});
+
 export const editPostSucces = (payload) => ({
     type: c.EDIT_POST_SUCCES, payload
 });
 export const editPostFailed = (payload) => ({
     type: c.EDIT_POST_FAILED, payload
 });
+
+export const editPost = (payload) => (dispatch, getState) =>{
+    const {user:{id}} = getState()
+    dispatch({type: c.EDIT_POST, payload})
+    return fetchApiData('editPost', {...payload, autorId: id})
+    .then(data=>dispatch( editPostSucces(data)))
+    .catch(error=>dispatch( editPostFailed(error)))
+}
+
+
 
 export const deletePost = (payload) => ({
     type: c.DELETE_POST, payload

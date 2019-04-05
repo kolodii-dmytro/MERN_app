@@ -1,0 +1,53 @@
+
+.postsList{
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+.postsList .post {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 1px dashed black;
+    border-radius: 0.2em;
+    padding: 1em 1em 0 1em;;
+    margin-bottom: 0.5em;
+}
+.postsList .post:hover {
+    border: 1px dashed red;
+}
+
+.post p{
+    display: flex;
+    padding: 0;
+    margin: 0 0 1em 0;
+}
+.post .title{
+    font-weight: bold
+}
+.post .text{
+    margin: 0 0 1em 1em;
+    border-left: 1px solid black;
+    padding: 0 0 0 0.3em;
+}
+.post .controls {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 0;
+    right:0
+}
+.post .controls .buttonIcon {
+    display: flex;
+    width:1em;
+    height: 1em;
+     cursor:pointer;
+     margin: 0 0.1em;
+     padding: 0.1em;
+     color:black;
+}
+.post .controls .buttonIcon:hover {
+
+     color:red;
+}
+
