@@ -6,9 +6,11 @@ import EditPostForm from './EditPostForm';
 export default function (props) {
     const [isHover, setHover] = useState(false);
     const [isEdit, setEdit] = useState(false)
-    const { data: { _id, title, text, autorId, created }, editPost } = props
+    const { data: { _id, title, text, autorId, created }, editPost, deletePost } = props
     const handleHover = () => setHover(!isHover)
     const handleEdit = () => setEdit(!isEdit);
+    const handleDelete = (_id) => deletePost({_id})
+    
 
     return (<li className='post'
         onMouseEnter={handleHover}
@@ -21,10 +23,9 @@ export default function (props) {
             _id = {_id}
         /> : <Fragment >{isHover
             ? <Controls
-                onEdit={handleEdit} />
+                onEdit={handleEdit} 
+                onRemove ={() => handleDelete(_id)}/>
             : null}
-
-
                 <p className='title'>
                     {title}
                 </p>

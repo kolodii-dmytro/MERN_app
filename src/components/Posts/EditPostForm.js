@@ -19,22 +19,30 @@ export default function editPostForm (props) {
         initialValues={{title: title, text:text}}
         validationSchema={createPostSchema}
         onSubmit = {(values, actions) => {
+          cancel();
             submit({...values, _id});
+            
 
         }}
 
         render ={({ errors, status, touched, isSubmitting }) => (
-            <Form className={'editPostForm'}>
-            <div>Edit post</div> 
-                <Field type="text" name="title" />
+            <Form className={'editPostForm'}> 
+            <p className='title'>
+                 &nbsp;<Field type="text" name="title" />
+                
                 <ErrorMessage name="title"/>
-                <Field type="textarea" name="text" />
+                </p>
+                <p className='text'>
+                <Field component='textarea' name="text" />
+                </p>
+                <p className = 'buttonBlock'>
                 <button type="submit" disabled={isSubmitting}>
                 Save
               </button>
               <button onClick = {cancel}>
                 Cancel 
               </button>
+              </p>
             </Form>
           )}
         />)

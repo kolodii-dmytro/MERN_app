@@ -9,7 +9,10 @@ export default function (props) {
     className = 'buttonIcon' 
     iconName={"far fa-edit"} 
     onClick = {onEdit}/>
-    <Icon className = 'buttonIcon' iconName={"far fa-trash-alt"}/>
+    <Icon 
+    className = 'buttonIcon' 
+    iconName={"far fa-trash-alt"}
+    onClick = {onRemove}/>
     
     </div>)
     

@@ -2,12 +2,14 @@ const login = require ('./login');
 const getPostsList = require('./getPostsList');
 const createPost = require('./createPost');
 const editPost = require('./editPost');
+const deletePost = require('./deletePost');
 
 const proceduresList = {
     login: login,
     getPostsList: getPostsList,
     createPost:createPost,
-    editPost:editPost 
+    editPost:editPost, 
+    deletePost:deletePost
 }
 
 const isProcedureAvailable = (procedureName) => proceduresList.hasOwnProperty(procedureName);

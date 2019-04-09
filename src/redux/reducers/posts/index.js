@@ -12,14 +12,16 @@ export default (state = defaultState, action) => {
         case c.GET_POST:
         case c.CREATE_POST:
         case c.DELETE_POST:
+        case c.EDIT_POST:
             return { ...state, loading:true, errors:[] }
-        case c.GET_POSTS_LIST_SUCCES:
-            return { ...state, posts:action.payload.posts, loading:false, errors:[] }
         case c.GET_POSTS_LIST_FAILED:
             return { ...state, loading:false, errors: [action.payload] }
         case c.CREATE_POST_SUCCES:
             return {...state, loading:false, posts:[...state.posts, action.payload.resp]}
-        
+            case c.GET_POSTS_LIST_SUCCES:
+            case c.EDIT_POST_SUCCES:
+            case c.DELETE_POST_SUCCES:
+            return {...state, loading:false, posts:action.payload.posts }
         
             default:
             return state

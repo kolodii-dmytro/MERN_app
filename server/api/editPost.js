@@ -1,9 +1,7 @@
 const Post = require('../db/models/post')
 
-async function editPost(data) {
-    console.log(data);
+async function editPost(data) {   
     const {_id, text, title, autorId} = data
-    
     const  resp = await Post.update({_id}, {text, title, autorId});
     return {resp};
 }
